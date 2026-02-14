@@ -7,6 +7,14 @@
 - [[architecture|Architecture Overview]]: Understanding the system design and technology stack.
 - [[KANBAN|Project Kanban Board]]: Track tasks, bugs, and feature requests.
 - [[user_documentation|User Documentation]]: Installation, usage, and configuration guide.
+- **Code Reference**:
+    - [[Code Reference/src_data_loader|Data Loader]]
+    - [[Code Reference/src_feature_eng_binning|Feature Eng: Binning]]
+    - [[Code Reference/src_feature_eng_topology|Feature Eng: Topology]]
+    - [[Code Reference/src_models_dga_gnn|Model: DGA-GNN]]
+    - [[Code Reference/src_models_dga_layers|Model: DGA Layers]]
+    - [[Code Reference/src_trainer|Trainer]]
+    - [[Code Reference/run|Run Script]]
 
 ## 🚀 Getting Started
 
