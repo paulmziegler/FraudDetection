@@ -1,0 +1,14 @@
+torch==2.2.1
+dgl==2.1.0
+toad
+scikit-learn
+networkx
+hydra-core
+pytorch-lightning
+click
+pyyaml
+pytest
+ruff
+numpy==1.26.4
+torchdata==0.7.1
+pydantic==2.12.5

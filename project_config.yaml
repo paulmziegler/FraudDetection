@@ -1,0 +1,15 @@
+project:
+  name: "MyProject"
+  version: "0.1.0"
+
+directories:
+  src: "src"
+  tests: "tests"
+  docs: "docs"
+  results: "results"
+  test_results: "unit test results"
+  logs: "logs"
+
+testing:
+  report_file: "results.xml"
+  coverage_report: "htmlcov"

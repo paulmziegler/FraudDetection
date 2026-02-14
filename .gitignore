@@ -1,0 +1,29 @@
+# IDEs and Caches
+.vscode/
+.idea/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+
+# Virtual Environment
+.venv/
+venv/
+
+# Build and Distribution
+build/
+dist/
+*.egg-info/
+
+# Logs and Reports
+logs/
+*.log
+*.xml
+*.html
+
+# Data - Do not commit raw or processed data
+data/raw/
+data/processed/
+
+# Unit Test Results - Do not commit test results
+unit test results/

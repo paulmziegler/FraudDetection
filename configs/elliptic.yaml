@@ -1,0 +1,16 @@
+# Configuration for training on the Elliptic dataset
+data:
+  path: "data"
+  dataset_name: "elliptic"
+  train_split_step: 35 # End of training period
+  val_split_step: 42  # End of validation period
+
+model:
+  in_feats: 165 # 93 local features + 72 aggregate features
+  hidden_dim: 128
+  num_classes: 2 # Licit vs Illicit
+
+training:
+  lr: 0.001
+  epochs: 50
+  batch_size: 2048 # Not used in our current full-graph model, but good practice

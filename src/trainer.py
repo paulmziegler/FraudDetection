@@ -1,0 +1,60 @@
+import torch
+import torch.nn.functional as F
+import torch.optim as optim
+
+from .data_loader import load_data
+from .models.dga_gnn import DGAGNN
+
+
+def train(config):
+    """
+    Main training loop for DGA-GNN.
+    Implements Feedback Dynamic Grouping.
+
+    Args:
+        config (dict): A dictionary containing all necessary configuration.
+    """
+    # Load data using parameters from config
+    g, features, labels, train_mask, val_mask, test_mask = load_data(
+        config["data_path"],
+        dataset_name=config["dataset_name"],
+        train_split_step=config["train_split_step"],
+        val_split_step=config["val_split_step"],
+    )
+
+    # Initialize Model
+    model = DGAGNN(config["in_feats"], config["hidden_dim"], config["num_classes"])
+
+    # Optimizer
+    optimizer = optim.Adam(model.parameters(), lr=config["lr"])
+
+    # Initial Group Labels
+    group_labels = torch.zeros(g.number_of_nodes(), dtype=torch.long)
+
+    group_labels_history = [group_labels.clone()]
+
+    for epoch in range(config["epochs"]):
+        model.train()
+
+        logits = model(g, features, group_labels)
+
+        loss = F.cross_entropy(logits[train_mask], labels[train_mask])
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        with torch.no_grad():
+            preds = logits.argmax(dim=1)
+
+        group_labels = preds.detach()
+        group_labels_history.append(group_labels.clone())
+
+        # Basic evaluation for logging
+        acc = (logits[val_mask].argmax(dim=1) == labels[val_mask]).float().mean()
+        print(
+            f"Epoch {epoch+1:02d}/{config['epochs']} | Loss: {loss.item():.4f} | Val Acc: {acc.item():.4f}"
+        )
+
+    print("Training complete.")
+    return model, group_labels_history
