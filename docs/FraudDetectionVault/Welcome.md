@@ -6,6 +6,7 @@
 
 - [[architecture|Architecture Overview]]: Understanding the system design and technology stack.
 - [[KANBAN|Project Kanban Board]]: Track tasks, bugs, and feature requests.
+- [[user_documentation|User Documentation]]: Installation, usage, and configuration guide.
 
 ## 🚀 Getting Started
 

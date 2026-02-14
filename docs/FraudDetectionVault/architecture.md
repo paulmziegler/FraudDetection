@@ -3,6 +3,83 @@
 ## Overview
 This project implements a **Dynamic Grouping Aggregation GNN (DGA-GNN)** for fraud detection, designed to emulate the framework presented at AAAI 2024. It moves beyond standard GNNs by addressing non-additive attributes (like account age) and utilizing feedback loops to dynamically group neighbor nodes.
 
+## Functional Diagram
+
+```mermaid
+graph TD
+    %% Nodes
+    Config[Configuration<br>configs/*.yaml]
+    Run[Runner<br>run.py]
+    DL[Data Loader<br>src/data_loader.py]
+    FE[Feature Engineering<br>src/feature_eng/]
+    Bin[Binning<br>binning.py]
+    Top[Topology<br>topology.py]
+    Trainer[Trainer<br>src/trainer.py]
+    Model[DGA-GNN Model<br>src/models/dga_gnn.py]
+    Layer[DGA Layer<br>src/models/dga_layers.py]
+    Feedback((Feedback Loop))
+
+    %% Flow
+    Config --> Run
+    Run --> DL
+    DL --> FE
+    FE --> Bin
+    FE --> Top
+    FE --> Trainer
+    Trainer --> Model
+    Model --> Layer
+    Layer --> Model
+    Model -- Predictions (Epoch t) --> Feedback
+    Feedback -- Group Labels (Epoch t+1) --> Trainer
+
+    %% Styling
+    style Feedback fill:#f96,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+```
+
+## Folder Hierarchy
+
+```text
+C:.
+├── .gitignore
+├── .pre-commit-config.yaml
+├── build_and_run.ps1
+├── docker-compose.yml
+├── Dockerfile
+├── GEMINI.md
+├── manage.py
+├── project_config.yaml
+├── pyproject.toml
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── run.py
+├── configs
+│   └── elliptic.yaml
+├── docs
+│   └── FraudDetectionVault
+├── src
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── trainer.py
+│   ├── feature_eng
+│   │   ├── __init__.py
+│   │   ├── binning.py
+│   │   └── topology.py
+│   └── models
+│       ├── __init__.py
+│       ├── dga_gnn.py
+│       └── dga_layers.py
+└── tests
+    ├── test_binning.py
+    ├── test_data_loader.py
+    ├── test_dga_gnn.py
+    ├── test_dga_layers.py
+    ├── test_elliptic_loader.py
+    ├── test_topology.py
+    ├── test_trainer.py
+    └── data
+```
+
 ## Core Components
 
 ### 1. Data Pipeline (`src/data_loader.py`)
