@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Install any needed packages specified in requirements.txt
 # We use a DGL/PyTorch combination known to be stable
 RUN pip install --no-cache-dir torch==2.2.1
-RUN pip install --no-cache-dir dgl==2.1.0 -f https://data.dgl.ai/wheels/cu121/repo.html
+RUN pip install --no-cache-dir dgl==2.1.0 -f https://data.dgl.ai/wheels/repo.html
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application's code into the container at /app

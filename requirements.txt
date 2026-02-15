@@ -1,5 +1,4 @@
 torch==2.2.1
-dgl==2.1.0
 toad
 scikit-learn
 networkx
