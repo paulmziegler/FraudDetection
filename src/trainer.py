@@ -1,6 +1,7 @@
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
+from tqdm import tqdm
 
 from .data_loader import load_data
 from .models.dga_gnn import DGAGNN
@@ -33,7 +34,8 @@ def train(config):
 
     group_labels_history = [group_labels.clone()]
 
-    for epoch in range(config["epochs"]):
+    pbar = tqdm(range(config["epochs"]), desc="Training")
+    for epoch in pbar:
         model.train()
 
         logits = model(g, features, group_labels)
@@ -52,9 +54,9 @@ def train(config):
 
         # Basic evaluation for logging
         acc = (logits[val_mask].argmax(dim=1) == labels[val_mask]).float().mean()
-        print(
-            f"Epoch {epoch+1:02d}/{config['epochs']} | Loss: {loss.item():.4f} | Val Acc: {acc.item():.4f}"
-        )
+        
+        # Update progress bar
+        pbar.set_postfix({"Loss": f"{loss.item():.4f}", "Val Acc": f"{acc.item():.4f}"})
 
     print("Training complete.")
     return model, group_labels_history
