@@ -4,3 +4,10 @@ services:
     volumes:
       - .:/app
     command: python manage.py run
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

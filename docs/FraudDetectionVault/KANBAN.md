@@ -6,7 +6,6 @@ kanban-plugin: basic
 
 ## Next Steps: Enhancements & Research
 
-- [ ] **Data**: Integrate a real-world dataset (e.g., Elliptic).
 - [ ] **Tuning**: Experiment with hyperparameters (`lr`, `hidden_dim`).
 - [ ] **Enhancement**: Implement Heterogeneous Graphs (Users, Devices, IPs).
 - [ ] **Enhancement**: Implement Contrastive Learning (DCL-GFD).
@@ -21,6 +20,7 @@ kanban-plugin: basic
 - [x] **Phase 1**: Data Loader and Feature Engineering implemented and tested.
 - [x] **Phase 2**: Core DGA-GNN model implemented and tested.
 - [x] **Phase 3**: Trainer with Feedback Loop implemented and tested.
+- [x] **Data**: Integrate a real-world dataset (e.g., Elliptic).
 
 
 ***
