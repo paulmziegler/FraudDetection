@@ -61,12 +61,12 @@ def lint():
 
 
 @cli.command()
-def run():
+@click.option("--config", default="configs/elliptic.yaml", help="Path to config file.")
+def run(config):
     """Run the application."""
-    src_dir = DIRS.get("src", "src")
-    main_file = os.path.join(src_dir, "main.py")
-    cmd = ["python", main_file]
-    click.echo(f"Running {main_file}...")
+    main_file = "run.py"
+    cmd = ["python", main_file, "--config", config]
+    click.echo(f"Running {main_file} with config {config}...")
     subprocess.run(cmd, check=False)
 
 

@@ -3,7 +3,6 @@ services:
     build: .
     volumes:
       - .:/app
-    command: python manage.py run
     deploy:
       resources:
         reservations:
