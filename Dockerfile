@@ -7,7 +7,11 @@ WORKDIR /app
 # Install system dependencies required for DGL (GraphBolt)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgomp1 \
+    libtbb2 \
     && rm -rf /var/lib/apt/lists/*
+
+# Set backend to PyTorch explicitly
+ENV DGLBACKEND=pytorch
 
 # Copy the requirements file into the container at /app
 COPY requirements.txt .
