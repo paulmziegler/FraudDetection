@@ -64,12 +64,34 @@ python manage.py lint
 ruff check src/
 ```
 
-## Docker
-
-Build and run the application using Docker Compose:
+### Hyperparameter Tuning
+To perform a grid search for optimal hyperparameters:
 ```bash
-docker-compose up --build
+python tune.py --config configs/elliptic.yaml
 ```
+This script iterates through combinations of learning rates, hidden dimensions, and epochs, printing the validation accuracy for each.
+
+## Docker (GPU Supported)
+
+The project includes a Docker configuration optimized for NVIDIA GPUs (CUDA 12.1).
+
+**Recommended Method (Windows):**
+Use the helper script to build and run the container:
+```powershell
+.\build_and_run_docker.ps1
+```
+
+**Manual Method:**
+1.  **Build:**
+    ```bash
+    docker-compose build
+    ```
+2.  **Run:**
+    ```bash
+    docker-compose up
+    ```
+
+**Note:** Ensure you have the NVIDIA Container Toolkit installed and Docker configured to use the `nvidia` runtime.
 
 Access the container shell:
 ```bash

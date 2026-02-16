@@ -6,7 +6,6 @@ kanban-plugin: basic
 
 ## Next Steps: Enhancements & Research
 
-- [ ] **Tuning**: Experiment with hyperparameters (`lr`, `hidden_dim`).
 - [ ] **Enhancement**: Implement Heterogeneous Graphs (Users, Devices, IPs).
 - [ ] **Enhancement**: Implement Contrastive Learning (DCL-GFD).
 - [ ] **Enhancement**: Add Explainable AI (XAI) analysis script.
@@ -21,6 +20,8 @@ kanban-plugin: basic
 - [x] **Phase 2**: Core DGA-GNN model implemented and tested.
 - [x] **Phase 3**: Trainer with Feedback Loop implemented and tested.
 - [x] **Data**: Integrate a real-world dataset (e.g., Elliptic).
+- [x] **Infrastructure**: Enabled GPU support for local and Docker environments.
+- [x] **Tuning**: Created `tune.py` script and verified hyperparameter search.
 
 
 ***
