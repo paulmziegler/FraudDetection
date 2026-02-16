@@ -14,7 +14,7 @@ This is the "Start" button. It reads the instruction manual (config file) you gi
 -   **Description**:
     1.  Sets up `argparse` to accept `--config`.
     2.  Reads the YAML configuration file (e.g., `configs/elliptic.yaml`).
-    3.  Flattens the nested YAML config into a single dictionary (`train_config`) suitable for the `train` function.
+    3.  Flattens the nested YAML config into a single dictionary (`train_config`) suitable for the `train` function. It now includes the `device` parameter.
     4.  Calls `train(train_config)`.
 
 ## Usage

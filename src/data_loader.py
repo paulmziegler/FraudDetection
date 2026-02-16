@@ -72,11 +72,9 @@ def _load_elliptic_data(data_path, train_split_step, val_split_step):
     timestamps = torch.tensor(nodes_df["Time step"].values, dtype=torch.long)
 
     # Temporal Split
-    train_mask = torch.tensor(timestamps < train_split_step)
-    val_mask = torch.tensor(
-        (timestamps >= train_split_step) & (timestamps < val_split_step)
-    )
-    test_mask = torch.tensor(timestamps >= val_split_step)
+    train_mask = (timestamps < train_split_step)
+    val_mask = (timestamps >= train_split_step) & (timestamps < val_split_step)
+    test_mask = (timestamps >= val_split_step)
 
     g.ndata["feat"] = features
     g.ndata["label"] = labels

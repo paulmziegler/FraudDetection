@@ -14,3 +14,4 @@ training:
   lr: 0.001
   epochs: 50
   batch_size: 2048 # Not used in our current full-graph model, but good practice
+  device: "cuda"

@@ -6,7 +6,7 @@
       {
         "id": "b0837af437de069f",
         "type": "tabs",
-        "dimension": 46.8141592920354,
+        "dimension": 67.42574257425743,
         "children": [
           {
             "id": "648638ebc32714ba",
@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "architecture.md",
+                "file": "user_documentation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "architecture"
+              "title": "user_documentation"
             }
           }
         ]
@@ -27,20 +27,16 @@
       {
         "id": "51ffce4e03bd0639",
         "type": "tabs",
-        "dimension": 53.1858407079646,
+        "dimension": 32.57425742574257,
         "children": [
           {
             "id": "7b9fdb841b149736",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "KANBAN.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "KANBAN"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -205,19 +201,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "7b9fdb841b149736",
+  "active": "648638ebc32714ba",
   "lastOpenFiles": [
+    "Code Reference/src_trainer.md",
     "Code Reference/src_models_dga_layers.md",
     "Code Reference/src_models_dga_gnn.md",
-    "Code Reference/src_trainer.md",
     "Code Reference/src_feature_eng_topology.md",
     "Code Reference/src_feature_eng_binning.md",
     "Code Reference/src_data_loader.md",
     "Code Reference/run.md",
-    "architecture.md",
     "Code Reference",
+    "architecture.md",
+    "KANBAN.md",
     "Welcome.md",
-    "user_documentation.md",
-    "KANBAN.md"
+    "user_documentation.md"
   ]
 }

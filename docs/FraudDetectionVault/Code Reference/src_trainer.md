@@ -22,9 +22,11 @@ This is the coach. It runs the practice sessions (epochs).
 -   **Signature**: `train(config)`
 -   **Logic**:
     1.  Loads data (`load_data`).
-    2.  Initializes the `DGAGNN` model and `Adam` optimizer.
-    3.  Initializes `group_labels` to all zeros (cold start).
-    4.  **Loop (Epochs)**:
+    2.  Sets up the compute device (`cuda` or `cpu`) based on configuration and availability.
+    3.  Moves the graph, features, masks, and model to the target device.
+    4.  Initializes the `DGAGNN` model and `Adam` optimizer.
+    5.  Initializes `group_labels` to all zeros (cold start) on the device.
+    6.  **Loop (Epochs)**:
         -   Forward pass: `model(g, features, group_labels)`.
         -   Calculate Loss (CrossEntropy) on **only** the `train_mask` nodes.
         -   Backpropagate and Update Weights.

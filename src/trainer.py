@@ -23,16 +23,29 @@ def train(config):
         val_split_step=config["val_split_step"],
     )
 
+    # Device handling
+    device = torch.device(config["device"] if torch.cuda.is_available() else "cpu")
+    print(f"Training on device: {device}")
+
+    # Move data to device
+    g = g.to(device)
+    features = features.to(device)
+    labels = labels.to(device)
+    train_mask = train_mask.to(device)
+    val_mask = val_mask.to(device)
+    test_mask = test_mask.to(device)
+
     # Initialize Model
     model = DGAGNN(config["in_feats"], config["hidden_dim"], config["num_classes"])
+    model = model.to(device)
 
     # Optimizer
     optimizer = optim.Adam(model.parameters(), lr=config["lr"])
 
     # Initial Group Labels
-    group_labels = torch.zeros(g.number_of_nodes(), dtype=torch.long)
+    group_labels = torch.zeros(g.number_of_nodes(), dtype=torch.long, device=device)
 
-    group_labels_history = [group_labels.clone()]
+    group_labels_history = [group_labels.clone().cpu()]
 
     pbar = tqdm(range(config["epochs"]), desc="Training")
     for epoch in pbar:
@@ -50,7 +63,7 @@ def train(config):
             preds = logits.argmax(dim=1)
 
         group_labels = preds.detach()
-        group_labels_history.append(group_labels.clone())
+        group_labels_history.append(group_labels.clone().cpu())
 
         # Basic evaluation for logging
         acc = (logits[val_mask].argmax(dim=1) == labels[val_mask]).float().mean()

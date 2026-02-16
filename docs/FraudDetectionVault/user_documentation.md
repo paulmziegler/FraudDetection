@@ -22,6 +22,18 @@ This project simulates a **Dynamic Grouping Aggregation GNN (DGA-GNN)** for frau
     pip install -r requirements.txt
     ```
 
+4.  **GPU Support (Optional)**
+    To enable GPU training (NVIDIA CUDA), install the specific versions of PyTorch and DGL:
+    ```powershell
+    # Windows PowerShell
+    .\install_gpu_deps.ps1
+    ```
+    Or manually:
+    ```bash
+    pip install torch==2.2.1 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+    pip install dgl -f https://data.dgl.ai/wheels/cu121/repo.html
+    ```
+
 ## Usage
 
 ### Running Experiments
@@ -72,6 +84,8 @@ Example `default.yaml`:
 model:
   hidden_dim: 64
   num_layers: 2
+training:
+  device: "cuda" # or "cpu"
 data:
   train_split: "2024-01-01"
   val_split: "2024-03-01"

@@ -33,6 +33,7 @@ def main():
         "num_classes": config["model"]["num_classes"],
         "lr": config["training"]["lr"],
         "epochs": config["training"]["epochs"],
+        "device": config["training"].get("device", "cpu"),
     }
 
     # Pass the combined config to the train function
