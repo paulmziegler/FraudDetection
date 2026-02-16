@@ -6,7 +6,7 @@
       {
         "id": "b0837af437de069f",
         "type": "tabs",
-        "dimension": 71.23893805309734,
+        "dimension": 46.8141592920354,
         "children": [
           {
             "id": "648638ebc32714ba",
@@ -27,16 +27,20 @@
       {
         "id": "51ffce4e03bd0639",
         "type": "tabs",
-        "dimension": 28.761061946902654,
+        "dimension": 53.1858407079646,
         "children": [
           {
             "id": "7b9fdb841b149736",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "KANBAN.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "KANBAN"
             }
           }
         ]
@@ -201,10 +205,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "a9d45aedd3904456",
+  "active": "7b9fdb841b149736",
   "lastOpenFiles": [
-    "Welcome.md",
+    "Code Reference/src_models_dga_layers.md",
+    "Code Reference/src_models_dga_gnn.md",
+    "Code Reference/src_trainer.md",
+    "Code Reference/src_feature_eng_topology.md",
+    "Code Reference/src_feature_eng_binning.md",
+    "Code Reference/src_data_loader.md",
+    "Code Reference/run.md",
     "architecture.md",
+    "Code Reference",
+    "Welcome.md",
     "user_documentation.md",
     "KANBAN.md"
   ]
